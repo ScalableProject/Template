@@ -1,0 +1,399 @@
+<DOCTYPE html>
+    <html lang="en">
+
+    <head>
+
+        <title>Reastaurant and Bar</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/animate.css">
+        <link rel="stylesheet" href="../css/owl.carousel.css">
+        <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="../css/magnific-popup.css">
+
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="../css/templatemo-style.css">
+
+    </head>
+
+    <body>
+
+        <!-- PRE LOADER -->
+        <section class="preloader">
+            <div class="spinner">
+
+                <span class="spinner-rotate"></span>
+
+            </div>
+        </section>
+
+        <!-- MENU -->
+        <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="../index.html" class="navbar-brand">5-Star <span>.</span> Hotel</a>
+                </div>
+
+                <!-- MENU LINKS -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                        <li><a href="roombooking.html" class="smoothScroll">Room Booking</a></li>
+                        <li><a href="../RestaurantBar/restaurant.html" class="smoothScroll">Restaurant & Bar</a></li>
+                        <li><a href="#team" class="smoothScroll">Rent Car</a></li>
+                        <li><a href="../event/event.html">Event & Celebration</a></li>
+                        <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                    </ul>
+
+                    <!-- <ul class="nav navbar-nav navbar-right">
+					<a href="Hotel_Reservation_Form.html" target="_blank" class="section-btn">Book a hall</a>
+					<a href="#footer" class="section-btn">Manage booking</a>
+                         
+                         
+                    </ul> -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- HOME -->
+        <section id="home" class="slider" data-stellar-background-ratio="0.5">
+            <div class="row">
+
+                <div class="owl-carousel owl-theme">
+                    <div class="item room-first">
+                        <div class="caption">
+                            <div class="container">
+                                <div class="col-md-8 col-sm-12">
+                                    <h3>Accomodation</h3>
+                                    <h1>We’re here to make sure your vacation starts the second you step foot in our lobby.</h1>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item room-second">
+                        <div class="caption">
+                            <div class="container">
+                                <div class="col-md-8 col-sm-12">
+                                    <h3>Accomodation</h3>
+                                    <h1>We’re here to make sure your vacation starts the second you step foot in our lobby.</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item room-third">
+                        <div class="caption">
+                            <div class="container">
+                                <div class="col-md-8 col-sm-12">
+                                    <h3>Accomodation</h3>
+                                    <h1>We’re here to make sure your vacation starts the second you step foot in our lobby.</h1>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <br>
+        <br>
+
+        <h1 style="text-align: center;">Room Booking</h1>
+        <hr style="width:50%;text-align:center;">
+        <hr style="width:45%;text-align:center;">
+
+        <div class="container">
+            <p style="text-align: center; font-size:20px"> One of the premier hotels in the Dublin city. 5 Star Hotel 222 spacious rooms including 50 Club™ rooms and 18 luxurious suites. As a Club™ guest, enjoy complimentary access to the club’s lounge and host of services. Additionally, the 79 fully-equipped
+                apartments are ideal for short and long stays. Modern, fully furnished and pet-friendly, the apartments come in flexible configurations of one and two bedrooms. Enjoy the comfort of feeling at home while staying with us. </p>
+        </div>
+
+        <!-- Hall types -->
+        <section id="about" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- <h3>Book a room</h3>
+                        </br> 
+                        </br>
+                        </br>-->
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <!-- <label class="date">CHECK IN:</label> -->
+                                <h4 class="date">Check In:</h4>
+                                <input class="book_n" type="date">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <h4 class="date">Check Out:</h4>
+                                <input class="book_n" type="date">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <h4 class="date">Number of persons:</h4>
+                                <select class="custom-select d-block form-control" id="person" required data-error="Please select Person">
+                                    <option disabled selected>Select Person*</option>
+                                     <option value="1">1</option>
+                                     <option value="2">2</option>
+                                     <option value="3">3</option>
+                                     <option value="4">4</option>
+                                     <option value="5">5</option>
+                                     <option value="6">6</option>
+                                     <option value="7">7</option>
+                                   </select>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="submit-button text-center">
+                                <br>
+                                <br>
+                                <button class="btn btn-common" id="submit" type="submit">Find Availability</button>
+                                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                <div class="clearfix"></div>
+                                <br>
+                                <br>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="col-md-6 col-sm-12">
+                         <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
+                              <img src="../images/e4.jpg" class="img-responsive" alt="">
+                         </div>
+                    </div> -->
+
+                </div>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <section id="team" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                        <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                            <h2>Types of Rooms</h2>
+                            <h4>Make your stay memorable!</h4>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
+                            <img src="../images/Singleroom.jpg" class="img-responsive" alt="">
+                            <div class="team-hover">
+                                <div class="team-room-item">
+
+                                    <b>
+                                        <ul style="list-style-type:disc;">
+                                            <li>Free Wifi</li>
+                                            <li>Flatscreen TV</li>
+                                            <li>Well-lit Work Spaces</li>
+                                            <li>Tea and coffee rereshment</li>
+                                            <li>Iron and Ironing Board</li>
+                                        </ul>
+                                    </b>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Single Room</h3>
+                            <p>Exquisitely built, this 40-square-metre room features modern design, wooden floors, and floor-to-ceiling windows. Enjoy a plush king bed, a work desk with high-speed internet access, marble bath with a freestanding tub and
+                                rain shower and other complimentary in-room amenities like premium toiletries and bathrobes.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-thumb wow fadeInUp" data-wow-delay="0.4s">
+                            <img src="../images/Doubleroom.jpg" class="img-responsive" alt="">
+                            <div class="team-hover">
+                                <div class="team-room-item">
+
+                                    <b>
+                                        <ul style="list-style-type:disc;">
+                                            <li>Free Wifi</li>
+                                            <li>Flatscreen TV</li>
+                                            <li>Well-lit Work Spaces</li>
+                                            <li>Tea and coffee rereshment</li>
+                                            <li>Iron and Ironing Board</li>
+                                            <li>Hairdryer</li>
+                                            
+                                        </ul>
+                                    </b>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Double Room</h3>
+                            <p>Exquisitely built, the 40-square-metre room features modern day design with wooden floors and floor-to-ceiling windows. Enjoy a plush king sized bed, a work desk with high-speed Internet access, marble bath with a freestanding
+                                tub and rain shower. Explore exclusive Club amenities such as 15% discount on Food & Beverages, airport transfers, breakfast, evening cocktails and canapés. </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                        <div class="team-thumb wow fadeInUp" data-wow-delay="0.6s">
+                            <img src="../images/Deluxroom.jpg" class="img-responsive" alt="">
+                            <div class="team-hover">
+                                <div class="team-room-item">
+                                    <b>
+                                        <ul style="list-style-type:disc;">
+                                            <li>Free Wifi</li>
+                                            <li>Flatscreen TV</li>
+                                            <li>Well-lit Work Spaces</li>
+                                            <li>Tea and coffee rereshment</li>
+                                            <li>Iron and Ironing Board</li>
+                                            <li>Hairdryer</li>
+                                            <li>Late Check-out Until 2pm</li>
+                                            
+                                        </ul>
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Delux Suite</h3>
+                            <p>Spacious 84-square-metre suite features modern decor with floor-to-ceiling windows, a complementing king bedroom, living area, work desk with high-speed Internet access and marble bath with freestanding tub and rain shower.
+                                Enjoy exclusive Club amenities including 15% discount on food and soft beverages, airport transfers, breakfast, evening cocktails and canapés. This is a standard suite.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!-- FOOTER -->
+        <footer id="footer" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 col-sm-8">
+                        <div class="footer-info">
+                            <div class="section-title">
+                                <h2 class="wow fadeInUp" data-wow-delay="0.2s">Find us</h2>
+                            </div>
+                            <address class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p>123 nulla a cursus rhoncus,<br> augue sem viverra 10870<br>id ultricies sapien</p>
+                              </address>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-8">
+                        <div class="footer-info">
+                            <div class="section-title">
+                                <h2 class="wow fadeInUp" data-wow-delay="0.2s">Reservation</h2>
+                            </div>
+                            <address class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p>090-080-0650 | 090-070-0430</p>
+                                   <p><a href="mailto:info@company.com">info@company.com</a></p>
+                                   <p>LINE: eatery247 </p>
+                              </address>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-8">
+                        <div class="footer-info footer-open-hour">
+                            <div class="section-title">
+                                <h2 class="wow fadeInUp" data-wow-delay="0.2s">Open Hours</h2>
+                            </div>
+                            <div class="wow fadeInUp" data-wow-delay="0.4s">
+                                <p>Monday: Closed</p>
+                                <div>
+                                    <strong>Tuesday to Friday</strong>
+                                    <p>7:00 AM - 9:00 PM</p>
+                                </div>
+                                <div>
+                                    <strong>Saturday - Sunday</strong>
+                                    <p>11:00 AM - 10:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4">
+                        <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
+                            <li>
+                                <a href="#" class="fa fa-facebook-square" attr="facebook icon"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-twitter"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-instagram"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-google"></a>
+                            </li>
+                        </ul>
+
+                        <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s">
+                            <p><br>Copyright &copy; 2022 <br>5-Star
+
+                                <br><br>Design: TemplateMo</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+
+
+
+
+        <!-- SCRIPTS -->
+        <script src="../js/jquery.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/jquery.stellar.min.js"></script>
+        <script src="../js/wow.min.js"></script>
+        <script src="../js/owl.carousel.min.js"></script>
+        <script src="../js/jquery.magnific-popup.min.js"></script>
+        <script src="../js/smoothscroll.js"></script>
+        <script src="../js/custom.js"></script>
+
+
+    </body>
+
+    </html>
