@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		
@@ -62,7 +62,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
 					<a href="Hotel_Reservation_Form.html" target="_blank" class="section-btn">Book a hall</a>
-					<a href="#manage" class="section-btn">Manage booking</a>
+					<a href="Manage_Booking.html" target="_blank" class="section-btn">Manage booking</a>
                          
                          
                     </ul>
@@ -208,45 +208,55 @@
 	 <hr style="width:45%;text-align:center;">
 	
 		<div class="container">
+				  <!-- <form name="getBookings" onsubmit="getBooking()" method="get"> -->
 		   <div class="row">
 		   <input
-              type="text"
+              type="number"
               style="font-size:17px; position:relative;
-	top:30px;
-	left:17%; padding: 10px 50px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 2px solid #5C150C;"
+					top:30px;
+					left:17%; padding: 10px 50px;
+				  margin: 0 auto;
+				  box-sizing: border-box;
+				  border: none;
+				  border-bottom: 2px solid #5C150C;"
               placeholder="Confirmation No. "
+			  id="coId" required
             />
 			
 			
 			<input
-              type="text"
+              type="email"
               style="font-size:17px; position:relative;
-	top:30px;
-	left:32%; padding: 10px 55px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 2px solid #5C150C;"
-              placeholder="Email "
+					top:30px;
+					left:32%; padding: 10px 55px;
+				  margin: 0 auto;
+				  box-sizing: border-box;
+				  border: none;
+				  border-bottom: 2px solid #5C150C;"
+				  placeholder="Email "
+				  id="coEmail"
             />
 			
-			<button onclick="postDoc()" style="border: none;
-	
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 100 500;
-  cursor: pointer;
-  background-color:#5C150C;">Reterive Booking</button>
 			
 		   </div>
+		   		  <!-- </form > -->
+				  
+				  <button style="border: none;
+	
+			  color: white;
+			  padding: 15px 32px;
+			  text-align: center;
+			  text-decoration: none;
+			  display: inline-block;
+			  font-size: 16px;
+			  margin-top: 75px;
+			  margin-left: 44%;
+			  cursor: pointer;
+			  background-color:#5C150C;"
+			  id="reteriveBooking" type="submit"
+			  onclick="getBooking()"> 
+			Reterive Booking
+            </button>
 		</div>
 	
 	</section>
