@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>5-Star Hotel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -17,15 +18,7 @@ input[type=text], input[type=password] {
 label{
 margin: 25%;
 }
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 25%;
-  border: none;
-  cursor: pointer;
-  width: 50%;
-}
+
 
 button:hover {
   opacity: 0.8;
@@ -63,12 +56,16 @@ span.psw {
   }
 }
 </style>
+
+<!-- API JS -->
+<script type="text/javascript" src="api.js"></script>
+
 </head>
 <body>
 
 
 
-<form action="/action_page.php" method="post">
+<form name="myForm" onsubmit="postReg(); reset(); return false;">
   <div class="imgcontainer">
     <img src="../images/loginIcon.png" alt="Avatar" class="avatar">
 	<h2>Registration Form</h2>
@@ -77,26 +74,33 @@ span.psw {
   <div class="container">
 	<label for="uname"><b>Email</b></label>
 	</br>
-    <input type="text" placeholder="Enter Email" name="uname" required>
+    <input type="text" placeholder="Enter Email" name="uname" id="rEmail" required>
 </br>
     <label for="uname"><b>Username</b></label>
 	</br>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" name="uname" id="rName" required>
 </br>
     <label for="psw"><b>Password</b></label>
 	</br>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw" id="rPass" required>
        <br>
 	<label for="cars"> <b>Choose a Role:</b></label>
-  <select name="cars" id="cars" required>
+  <!-- <select name="cars" id="cars" required>
     <option ></option>
     <option value="user">User</option>
     <option value="admin">Admin</option>
     <option value="mod">Moderator</option>
-  </select>
+  </select> -->
   
 	   <br><br>
-    <button type="submit">Register</button>
+     <input id="input_2" type="submit" style=" background-color: #04AA6D;
+     color: white;
+     padding: 14px 20px;
+     margin: 8px 25%;
+     border: none;
+     cursor: pointer;
+     width: 50%;" value="Submit"
+     >
     
   </div>
 

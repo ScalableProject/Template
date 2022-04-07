@@ -20,6 +20,8 @@
 </head>
 <body>
 
+  
+
  <section id="manage" data-stellar-background-ratio="0.5">
 	
 	<br>
@@ -32,9 +34,9 @@
 		   <input
               type="number"
               style="font-size:17px; position:relative;
-					top:40px;
+					margin-top: 75px;
 					left:25%; 
-					padding:5px;
+					padding:15px;
 				  margin: 0 auto;
 				  box-sizing: border-box;
 				  border: none;
@@ -43,41 +45,36 @@
 			  id="coId" required
             />
 			
-			
-			<input
-              type="email"
-              style="font-size:17px; position:relative;
-					top:40px;
-					left:44%; 
-					padding: 5px;
-				  margin: 0 auto;
-				  box-sizing: border-box;
-				  border: none;
-				  border-bottom: 2px solid #5C150C;"
-				  placeholder="Email "
-				  id="coEmail"
-            />
-			
+            <button style="border: none;
+	
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 75px;
+            margin-left: 44%;
+            cursor: pointer;
+            background-color:#5C150C;"
+            id="reteriveBooking" type="submit"
+            onclick="getBooking()"> 
+          Reterive Booking
+                </button>
+					
 			
 		   </div>
 		   		  <!-- </form > -->
 				  
-				  <button style="border: none;
-	
-			  color: white;
-			  padding: 15px 32px;
-			  text-align: center;
-			  text-decoration: none;
-			  display: inline-block;
-			  font-size: 16px;
-			  margin-top: 75px;
-			  margin-left: 44%;
-			  cursor: pointer;
-			  background-color:#5C150C;"
-			  id="reteriveBooking" type="submit"
-			  onclick="getBooking()"> 
-			Reterive Booking
-            </button>
+             <div class="row">
+
+              <label id="error" style="font-size:17px;
+              
+              top: 50px;
+              left:25%;" > </label>
+
+             </div>
+				  
 		</div>
 	
 	</section>
@@ -122,6 +119,10 @@
           </div>
         </div>
       </li>
+
+
+      
+
       <li class="form-line" data-type="control_address" id="id_6">
         <label class="form-label form-label-top form-label-auto" id="label_6" for="input_6_addr_line1"> Address </label>
         <div id="cid_6" class="form-input-wide" data-layout="full">
@@ -217,9 +218,28 @@
       <li class="form-line" data-type="control_button" id="id_2">
         <div id="cid_2" class="form-input-wide" data-layout="full">
           <div data-align="center" class="form-buttons-wrapper form-buttons-center   jsTest-button-wrapperField">
-            <input id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" value="Update"
+            <input id="input_2" type="submit" style="padding:15px;
+            background: #068f06;
+            color:white;
+            font-size: 18px;
+            border:0;
+            outline:none;
+            cursor:pointer;
+            width:150px;
+            margin:20px auto 0;
+            border-radius:30px; text-align: center;" value="Update"
 			>
              
+      <button id="delete" type="submit" style="padding:15px;
+      background: #5C150C;
+      color:white;
+      font-size: 18px;
+      border:0;
+      outline:none;
+      cursor:pointer;
+      width:150px;
+      margin:20px auto 0;
+      border-radius:30px; text-align: center;" onclick="deleteBooking()">Delete</button>
             
           </div>
         </div>
@@ -227,6 +247,38 @@
       
       
     </ul>
+
+
+    <script>
+      document.getElementById("last_n").style.display = "none";
+      document.getElementById("first_n").style.display = "none";
+
+      document.getElementById("input_6_addr_line1").style.display = "none";
+      document.getElementById("input_6_cityy").style.display = "none";
+      document.getElementById("input_6_postall").style.display = "none";
+
+      document.getElementById("input_7_phone").style.display = "none";
+      document.getElementById("input_7_email").style.display = "none";
+
+      document.getElementById("arrivall").style.display = "none";
+      document.getElementById("departuree").style.display = "none";
+
+      document.getElementById("input_222").style.display = "none";
+      document.getElementById("requestt").style.display = "none";
+      document.getElementById("input_2").style.display = "none";
+      document.getElementById("delete").style.display = "none";
+
+
+
+
+
+
+
+
+
+    </script>
+
+
   </div>
 
   </form >

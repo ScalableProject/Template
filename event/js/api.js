@@ -53,6 +53,7 @@ xhr.onreadystatechange = function () {
 	  
    }
    else if(this.status == 200){
+	alert("Booking done");
 	   location.reload();
    }
    };
@@ -94,7 +95,26 @@ function getBooking() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       
-	  var x = JSON.parse(this.responseText);
+		document.getElementById("last_n").style.display = "block";
+		document.getElementById("first_n").style.display = "block";
+		document.getElementById("input_6_addr_line1").style.display = "block";
+      document.getElementById("input_6_cityy").style.display = "block";
+      document.getElementById("input_6_postall").style.display = "block";
+
+      document.getElementById("input_7_phone").style.display = "block";
+      document.getElementById("input_7_email").style.display = "block";
+
+      document.getElementById("arrivall").style.display = "block";
+      document.getElementById("departuree").style.display = "block";
+
+      document.getElementById("input_222").style.display = "block";
+      document.getElementById("requestt").style.display = "block";
+      document.getElementById("input_2").style.display = "block";
+	  document.getElementById("delete").style.display = "block";
+	  document.getElementById("error").style.display = "none";
+
+
+		var x = JSON.parse(this.responseText);
 	  console.log(x);
 	  console.log(x["fName"], x["lName"]);
 
@@ -123,14 +143,41 @@ function getBooking() {
 	}
 	else if (this.readyState != 4 && this.status != 200){
 		//var y = JSON.parse(this.responseText);
-		console.log(this.responseText);
-		
+
+		var x = JSON.parse(this.responseText);
+	  console.log(x);
+	  console.log(x["status"]);
+	  var error="Error: "+x["error"]+"<br>Message: "+x["message"]+ "<br>Status: "+x["status"];
+
+	  document.getElementById("error").innerHTML = error
+			
 		
 	}
   };
-  xhttp.open("GET", "http://localhost:5000/api/bookings/"+coId, true);
+  xhttp.open("GET", "http://localhost:5000/api/bookings/filter/"+coId, true);
   xhttp.send();
 }
+
+
+function deleteBooking(){
+
+	var coId = document.getElementById("coId").value;
+	var url = "http://localhost:5000/api/bookings/"+coId;
+var xhr = new XMLHttpRequest();
+xhr.open("DELETE", url, true);
+xhr.onload = function () {
+	var info = JSON.parse(xhr.responseText);
+	if (xhr.readyState == 4 && xhr.status == 200) {
+		console.table(info);
+		alert("Booking Canceled");
+	} else {
+		console.error(info);
+	}
+}
+xhr.send();
+}
+
+
 
 
 
@@ -160,7 +207,7 @@ function putDoc() {
 	var url = "http://localhost:5000/api/bookings/"+coId;
 
 var xhr = new XMLHttpRequest();
-xhr.open('PUT', url, true);
+xhr.open("PUT", url, true);
 
 xhr.setRequestHeader("Accept", "*/*");
 xhr.setRequestHeader("Content-Type", "application/json");
@@ -171,6 +218,7 @@ xhr.onreadystatechange = function () {
 	  
    }
    else if(this.status == 200){
+	alert("Booking Updated");
 	   location.reload();
    }
    };
@@ -200,5 +248,6 @@ xhr.send(data);
 
 	
 }
+
 
 

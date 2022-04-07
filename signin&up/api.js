@@ -6,8 +6,9 @@ function loadDoc() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       
-	  /*var x = JSON.parse(this.responseText);
-	  console.log(x);*/
+	  //var x = JSON.parse(this.responseText);
+	  console.log(this.responseText);
+    document.getElementById("loginn").style.display = "none";
 	 
 	  //document.getElementById("test").innerHTML = x["accounts"][0]["name"]
 	 //document.getElementById("test").innerHTML = x["fName"]
@@ -15,9 +16,47 @@ function loadDoc() {
 		
 	}
   };
-  xhttp.open("GET", "http://localhost:5000/api/test/mod", true);
+  xhttp.open("GET", "http://localhost:5000/api/test/user", true);
   xhttp.send();
 }
+
+function outDoc(){
+
+
+  var url = "http://localhost:5000/api/auth/signout";
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  
+  xhr.setRequestHeader("Accept", "*/*");
+  xhr.setRequestHeader("Content-Type", "application/json");
+  
+ 
+  
+  
+  
+  xhr.onreadystatechange = function () {
+     if (xhr.readyState === 4) {
+       console.log(xhr.status);
+        console.log(xhr.responseText);
+        var x = JSON.parse(this.responseText);
+        alert(x["message"]);
+        //location.reload();
+     }
+     else if(this.status == 200){
+      location.replace("index.html")
+    }
+    
+    };
+  
+  
+  
+
+  xhr.send();
+
+
+}
+
 
 function postDoc() {
 	
@@ -40,7 +79,15 @@ xhr.onreadystatechange = function () {
    if (xhr.readyState === 4) {
 	   console.log(xhr.status);
       console.log(xhr.responseText);
-   }};
+      //location.reload();
+   }
+   else if(this.status == 200){
+    //location.reload();
+    //location.replace("../index.html")
+    
+  }
+  
+  };
 
 
 
@@ -67,3 +114,70 @@ xhr.send(data);
 	
 	
 }
+
+
+function postReg() {
+	
+	
+	var url = "http://localhost:5000/api/auth/signup";
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", url, true);
+
+xhr.setRequestHeader("Accept", "*/*");
+xhr.setRequestHeader("Content-Type", "application/json");
+
+var rEmail=document.getElementById('rEmail').value;
+var rName=document.getElementById('rName').value;
+var rPass=document.getElementById('rPass').value;
+
+console.log(rEmail);
+console.log(rName);
+console.log(rPass);
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+	   console.log(xhr.status);
+      console.log(xhr.responseText);
+      var x = JSON.parse(this.responseText);
+      alert(x["message"]);
+      //location.reload();
+   }
+   else if(this.status == 200){
+    //location.reload();
+    location.replace("Login.html")
+  }
+  
+  };
+
+
+
+var input = {
+
+  "username": rName,
+  "email":rEmail,
+  "password": rPass,
+  "role":["user"]
+
+};
+/*const input={
+	
+	username:na,
+
+    password:pass
+	
+}*/
+var data = JSON.stringify(input);
+//console.log(typeof na)
+console.log(data);
+xhr.send(data);
+
+	
+	
+	
+}
+
+
+
+
+
