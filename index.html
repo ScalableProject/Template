@@ -30,6 +30,30 @@ http://www.templatemo.com/tm-515-eatery
 </head>
 <body>
 
+     <script>
+
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      
+	  //var x = JSON.parse(this.responseText);
+	  console.log(this.responseText);
+    document.getElementById("loginn").style.display = "none";
+    document.getElementById("registerr").style.display = "none";
+    document.getElementById("logoutt").style.display = "block";
+	  //document.getElementById("test").innerHTML = x["accounts"][0]["name"]
+	 //document.getElementById("test").innerHTML = x["fName"]
+	  
+		
+	}
+     
+  };
+  xhttp.open("GET", "http://localhost:5000/api/test/user", true);
+  xhttp.send();
+
+
+     </script>
+
      <!-- PRE LOADER -->
      <section class="preloader">
           <div class="spinner">
@@ -67,9 +91,14 @@ http://www.templatemo.com/tm-515-eatery
 
                     <ul class="nav navbar-nav navbar-right">
                          <li><a href="#">Call Now! <i class="fa fa-phone"></i> 010 020 0340</a></li>
-                         <a href="signin&up/Login.html" class="section-btn">Login</a>
-						 <a href="signin&up/Register.html" class="section-btn">Register</a>
+                         <a href="signin&up/Login.html" class="section-btn" id="loginn">Login</a>
+						 <a href="signin&up/Register.html" class="section-btn" id="registerr">Register</a>
+                         
+                               <button type="submit" onclick="outDoc()" class="section-btn" id="logoutt">Logout</button>
+                               <script>          document.getElementById("logoutt").style.display = "none";
+                              </script>
                     </ul>
+                    
                </div>
 
           </div>
@@ -537,6 +566,8 @@ http://www.templatemo.com/tm-515-eatery
      <script src="js/jquery.magnific-popup.min.js"></script>
      <script src="js/smoothscroll.js"></script>
      <script src="js/custom.js"></script>
+
+     <script src="signin&up/api.js"></script>
 
 </body>
 </html>
