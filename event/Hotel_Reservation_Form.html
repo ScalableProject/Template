@@ -20,7 +20,8 @@
 </head>
 <body>
 
-  <form name="myForm" onsubmit="postDoc(); reset(); return false;">
+  <!-- input fields for booking  -->
+  <form name="myForm" onsubmit="postDoc(); reset();">
   <div role="main" class="form-all">
     <style>
       .form-all:before { background: none;}
@@ -45,6 +46,7 @@
           </div>
         </div>
       </li>
+      <!-- personal details required -->
       <li class="form-line" data-type="control_fullname" id="id_5">
         <label class="form-label form-label-top form-label-auto" id="label_5" for="first_5"> Full Name </label>
         <div id="cid_5" class="form-input-wide" data-layout="full">

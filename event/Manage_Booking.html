@@ -26,7 +26,8 @@
 	
 	<br>
 
-	
+	<!--Enter booking details to retrive them from database -->
+  <!--GET request -->
 	
 		<div class="container">
 				  <!-- <form name="getBookings" onsubmit="getBooking()" method="get"> -->
@@ -80,7 +81,10 @@
 	</section>
 
 
-  <form name="myForm" onsubmit="return putDoc()" method="put">
+  <!-- to update the retrived data-->
+  <!--PUT request -->
+
+  <form name="myForm" onsubmit="putDoc()" method="put">
   <div role="main" class="form-all">
     <style>
       .form-all:before { background: none;}
@@ -102,7 +106,8 @@
 	  
 	 
 	  
-	  
+	  <!-- form (textfields)-->
+    <!--it will get populated from existing data then user will edit it -->
 	  
       <li class="form-line" data-type="control_fullname" id="id_5">
         <label class="form-label form-label-top form-label-auto" id="label_5" for="first_5"> Full Name </label>
@@ -215,6 +220,8 @@
           <textarea id="requestt" class="form-textarea" name="q20_doYou" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_20"required></textarea>
         </div>
       </li>
+
+      <!-- button to perform update function-->
       <li class="form-line" data-type="control_button" id="id_2">
         <div id="cid_2" class="form-input-wide" data-layout="full">
           <div data-align="center" class="form-buttons-wrapper form-buttons-center   jsTest-button-wrapperField">
@@ -229,7 +236,8 @@
             margin:20px auto 0;
             border-radius:30px; text-align: center;" value="Update"
 			>
-             
+          
+      <!--button to perform delete function -->
       <button id="delete" type="submit" style="padding:15px;
       background: #5C150C;
       color:white;
@@ -250,6 +258,9 @@
 
 
     <script>
+      
+      //make them hidden 
+
       document.getElementById("last_n").style.display = "none";
       document.getElementById("first_n").style.display = "none";
 
