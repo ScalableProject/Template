@@ -20,6 +20,8 @@ function loadDoc() {
   xhttp.send();
 }
 
+//POST function
+// to signout account
 function outDoc(){
 
 
@@ -57,7 +59,7 @@ function outDoc(){
 
 }
 
-
+// POST to signin
 function postDoc() {
 	
 	
@@ -116,6 +118,7 @@ xhr.send(data);
 }
 
 
+//POST to signup
 function postReg() {
 	
 	

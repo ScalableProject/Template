@@ -1,3 +1,4 @@
+//testing purpose
 function loadDoc() {
 	
 	
@@ -19,6 +20,9 @@ function loadDoc() {
   xhttp.send();
 }
 
+// sending POST request
+//adding booking to database
+
 function postDoc() {
 	
 	var fName = document.getElementById("first_5").value;
@@ -37,7 +41,7 @@ function postDoc() {
 	var request = document.getElementById("request").value;
 	
 	
-	
+	//api link
 	
 	var url = "http://localhost:5000/api/bookings/";
 
@@ -47,6 +51,7 @@ xhr.open("POST", url);
 xhr.setRequestHeader("Accept", "*/*");
 xhr.setRequestHeader("Content-Type", "application/json");
 
+//getting reponse 
 xhr.onreadystatechange = function () {
    if (xhr.readyState === 4) {
       console.log(xhr.responseText);
@@ -54,10 +59,12 @@ xhr.onreadystatechange = function () {
    }
    else if(this.status == 200){
 	alert("Booking done");
+	//page reload
 	   location.reload();
    }
    };
 
+   //storing input in variables
 var input = {
 		
       "fName": fName,
@@ -74,27 +81,32 @@ var input = {
   
 };
 
-
+//converting into json
 var data = JSON.stringify(input);
 //console.log(typeof na)
 console.log(data);
+
+//request sent
 xhr.send(data);
 
 
 	
 }
 
-
+//get request
 function getBooking() {
 	
 	//document.getElementById("last_n").style.display = "none";
 	
+	//getting booking id
 	var coId = document.getElementById("coId").value;
 	console.log(coId);
 	var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       
+		//if response is successful
+		//make fields visible
 		document.getElementById("last_n").style.display = "block";
 		document.getElementById("first_n").style.display = "block";
 		document.getElementById("input_6_addr_line1").style.display = "block";
@@ -117,6 +129,8 @@ function getBooking() {
 		var x = JSON.parse(this.responseText);
 	  console.log(x);
 	  console.log(x["fName"], x["lName"]);
+
+	  //fill info on textfields
 
 		document.getElementById("first_n").value = x["fName"]
 		document.getElementById("last_n").value = x["lName"]
@@ -144,6 +158,7 @@ function getBooking() {
 	else if (this.readyState != 4 && this.status != 200){
 		//var y = JSON.parse(this.responseText);
 
+		//if there is some error
 		var x = JSON.parse(this.responseText);
 	  console.log(x);
 	  console.log(x["status"]);
@@ -159,6 +174,7 @@ function getBooking() {
 }
 
 
+//to delete booking
 function deleteBooking(){
 
 	var coId = document.getElementById("coId").value;
@@ -167,7 +183,8 @@ var xhr = new XMLHttpRequest();
 xhr.open("DELETE", url, true);
 xhr.onload = function () {
 	var info = JSON.parse(xhr.responseText);
-	if (xhr.readyState == 4 && xhr.status == 200) {
+	//if request successful
+	if (xhr.readyState == 4 && this.status == 200) {
 		console.table(info);
 		alert("Booking Canceled");
 	} else {
@@ -180,12 +197,14 @@ xhr.send();
 
 
 
-
+// to update booking
+//PUT request
 function putDoc() {
 	
 	var coId = document.getElementById("coId").value;
 	console.log(coId);
 	
+	//storing all values in variables
 	var fName = document.getElementById("first_n").value;
 	var lName = document.getElementById("last_n").value;
 	var sAddress = document.getElementById("input_6_addr_line1").value;
