@@ -1,149 +1,342 @@
-<DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
+<head>
 
-        <title>Reastaurant and Bar</title>
+    <title>Reastaurant and Bar</title>
 
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/font-awesome.min.css">
-        <link rel="stylesheet" href="../css/animate.css">
-        <link rel="stylesheet" href="../css/owl.carousel.css">
-        <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/owl.carousel.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/magnific-popup.css">
 
-        <!-- MAIN CSS -->
-        <link rel="stylesheet" href="../css/templatemo-style.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../css/templatemo-style.css">
 
-    </head>
+    <!-- API JS -->
+    <script type="text/javascript" src="js/RNB_api.js"></script>
+</head>
 
-    <body>
+<body>
 
-        <!-- PRE LOADER -->
-        <section class="preloader">
-            <div class="spinner">
+    <!-- PRE LOADER -->
+    <section class="preloader">
+        <div class="spinner">
 
-                <span class="spinner-rotate"></span>
+            <span class="spinner-rotate"></span>
 
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- MENU -->
-        <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
-            <div class="container">
+    <script>
+        function showbookDiv() {
+            document.getElementById('bookDiv').style.display = "block";
+            document.getElementById('manageDiv').style.display = "none";
+        }
 
-                <div class="navbar-header">
-                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        function showmanageDiv() {
+            document.getElementById('bookDiv').style.display = "none";
+            document.getElementById('manageDiv').style.display = "block";
+        }
+
+        function showdisplayDiv() {
+            document.getElementById('displayDiv').style.display = "block";
+            document.getElementById('bookDiv').style.display = "none";
+            get_Booking();
+
+        }
+    </script>
+
+    <!-- MENU -->
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                          <span class="icon icon-bar"></span>
                          <span class="icon icon-bar"></span>
                          <span class="icon icon-bar"></span>
                     </button>
 
-                    <!-- lOGO TEXT HERE -->
-                    <a href="../index.html" class="navbar-brand">5-Star <span>.</span> Hotel</a>
-                </div>
+                <!-- lOGO TEXT HERE -->
+                <a href="../index.html" class="navbar-brand">5-Star <span>.</span> Hotel</a>
+            </div>
 
-                <!-- MENU LINKS -->
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-nav-first">
-                        <li><a href="../RoomBooking/roombooking.html" class="smoothScroll">Room Booking</a></li>
-                        <li><a href="restaurant.html" class="smoothScroll">Restaurant & Bar</a></li>
-                        <li><a href="#team" class="smoothScroll">Rent Car</a></li>
-                        <li><a href="../event/event.html">Event & Celebration</a></li>
-                        <li><a href="#contact" class="smoothScroll">Contact</a></li>
-                    </ul>
+            <!-- MENU LINKS -->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-nav-first">
+                    <li><a href="../RoomBooking/roombooking.html" class="smoothScroll">Room Booking</a></li>
+                    <li><a href="restaurant.html" class="smoothScroll">Restaurant & Bar</a></li>
+                    <li><a href="../event/event.html">Event & Celebration</a></li>
+                    <li><a href="../index.html#contact">Locations</a></li>
+                    <li><a href="../contact/index.html" target="_blank">Contact</a></li>
+                </ul>
 
-                    <!-- <ul class="nav navbar-nav navbar-right">
-					<a href="Hotel_Reservation_Form.html" target="_blank" class="section-btn">Book a hall</a>
-					<a href="#footer" class="section-btn">Manage booking</a>
-                         
-                         
+                <!-- <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Call Now! <i class="fa fa-phone"></i> 010 020 0340</a></li>
+                        <a href="signin&up/Login.html" class="section-btn" id="loginn">Login</a>
+                        <a href="signin&up/Register.html" class="section-btn" id="registerr">Register</a>
+
+                        <button type="submit" onclick="outDoc()" class="section-btn" id="logoutt">Logout</button>
+                        <script>
+                            document.getElementById("logoutt").style.display = "none";
+                        </script>
                     </ul> -->
-                </div>
-
             </div>
-        </section>
 
-        <!-- HOME -->
-        <section id="home" class="slider" data-stellar-background-ratio="0.5">
-            <div class="row">
-
-                <div class="owl-carousel owl-theme">
-                    <div class="item restro-first">
-                        <div class="caption">
-                            <div class="container">
-                                <div class="col-md-8 col-sm-12">
-                                    <h3>Reservation of table</h3>
-                                    <h1>Book a table for your breakfast, lunch or dinner. We assure you to having your best time by serving our best services.</h1>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item restro-second">
-                        <div class="caption">
-                            <div class="container">
-                                <div class="col-md-8 col-sm-12">
-                                    <h3>Food</h3>
-                                    <h1>We’re always in the mood for food.We’ve got something for everyone.</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item restro-third">
-                        <div class="caption">
-                            <div class="container">
-                                <div class="col-md-8 col-sm-12">
-                                    <h3>Drinks</h3>
-                                    <h1>To life. To love. To new adventures. Cheers!!</h1>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <br>
-        <br>
-
-        <h1 style="text-align: center;">Reservation of Table</h1>
-        <hr style="width:50%;text-align:center;">
-        <hr style="width:45%;text-align:center;">
-
-        <div class="container">
-            <p style="text-align: center; font-size:20px"> The restaurant serves the best in freshly prepared buffet breakfast with a delicious choice of full Irish & continental options and freshly prepared vegetable & fruit juices. Visit us daily from 7 am until 10 am Monday to Friday and up until
-                11 am on Saturday, Sunday and Public Holidays. </p>
         </div>
+    </section>
 
-        <!-- Hall types -->
-        <section id="about" data-stellar-background-ratio="0.5">
-            <div class="container">
-                <div class="row">
+    <!-- HOME -->
+    <section id="home" class="slider" data-stellar-background-ratio="0.5">
+        <div class="row">
+
+            <div class="owl-carousel owl-theme">
+                <div class="item restro-first">
+                    <div class="caption">
+                        <div class="container">
+                            <div class="col-md-8 col-sm-12">
+                                <h3>Reservation of table</h3>
+                                <h1>Book a table for your breakfast, lunch or dinner. We assure you to having your best time by serving our best services.</h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item restro-second">
+                    <div class="caption">
+                        <div class="container">
+                            <div class="col-md-8 col-sm-12">
+                                <h3>Food</h3>
+                                <h1>We’re always in the mood for food.We’ve got something for everyone.</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item restro-third">
+                    <div class="caption">
+                        <div class="container">
+                            <div class="col-md-8 col-sm-12">
+                                <h3>Drinks</h3>
+                                <h1>To life. To love. To new adventures. Cheers!!</h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <h1 style="text-align: center;">Reservation of Table</h1>
+    <hr style="width:50%;text-align:center;">
+    <hr style="width:45%;text-align:center;">
+
+    <div class="container">
+        <p style="text-align: center; font-size:20px"> The restaurant serves the best in freshly prepared buffet breakfast with a delicious choice of full Irish & continental options and freshly prepared vegetable & fruit juices. Visit us daily from 7 am until 10 am Monday to Friday and up until 11
+            am on Saturday, Sunday and Public Holidays. </p>
+    </div>
+
+    <!-- Table Reservation -->
+
+
+    <section id="about" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <button class="btn btn-common" id="booksubmit" onclick="showbookDiv()">Book Table</button>
+            <button class="btn btn-common" id="modifysubmit" onclick="showmanageDiv()">Modify Booking</button>
+            <!-- <form name="myForm" onsubmit="create_booking(); reset(); false;"> -->
+            <div class="row" id="bookDiv" style="display:none;">
+                <div class="col-md-6">
+                    <h3>Book a table</h3>
+                    <br>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Date: </label>
+                            <input id="input_date" class="datepicker picker__input form-control" name="date" type="date" value="" equired data-error="Please enter Date">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Time: </label>
+                            <!-- <input id="input_time" class="time form-control picker__input" required data-error="Please enter time"> -->
+                            <select class="custom-select d-block form-control" id="input_time" required data-error="Please select time">
+                                    <option disabled selected>Select Time*</option>
+                                    <option value="1">12:00 PM</option>
+                                    <option value="2">12:30 PM</option>
+                                    <option value="3">01:00 PM</option>
+                                    <option value="4">01:30 PM</option>
+                                    <option value="5">02:00 PM</option>
+                                    <option value="6">02:30 PM</option>
+                                    <option value="7">03:00 PM</option>
+                                    <option value="8">03:30 PM</option>
+                                    <option value="9">04:00 PM</option>
+                                    <option value="10">04:30 PM</option>
+                                    <option value="11">05:00 PM</option>
+                                    <option value="12">05:30 PM</option>
+                                    <option value="13">06:00 PM</option>
+                                    <option value="14">06:30 PM</option>
+                                    <option value="15">07:00 PM</option>
+                                    <option value="16">07:30 PM</option>
+                                    <option value="17">08:00 PM</option>
+                                    <option value="18">08:30 PM</option>
+                                    <option value="19">09:00 PM</option>
+                                    <option value="20">09:30 PM</option>
+                                    <option value="21">10:00 PM</option>
+                                  </select>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Number of person: </label>
+                            <select class="custom-select d-block form-control" id="person" required data-error="Please select Person">
+                                     <option disabled selected>Select Person*</option>
+                                     <option value="1">1</option>
+                                     <option value="2">2</option>
+                                     <option value="3">3</option>
+                                     <option value="4">4</option>
+                                     <option value="5">5</option>
+                                     <option value="6">6</option>
+                                     <option value="7">7</option>
+                                   </select>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Contact Details</h3>
+                    <br>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>First Name: </label>
+                            <input type="text" class="form-control" id="fname" name="name" placeholder="Your First Name" required data-error="Please enter your first name">
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Last Name: </label>
+                            <input type="text" class="form-control" id="lname" name="name" placeholder="Your Last Name" required data-error="Please enter your last name">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Email: </label>
+                            <input type="text" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Contact Number: </label>
+                            <input type="text" placeholder="Your Numbar" id="phone" class="form-control" name="phone" required data-error="Please enter your Numbar">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="submit-button text-center">
+                        <br>
+                        <br>
+                        <button class="form-submit-button submit-button jf-form-buttons jsTest-submitFieldn" id="submit" type="submit" value="submit" onclick="create_booking()"> Book Table</button>
+                        <!-- <input id="submit" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" value="Book Table"> -->
+
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                        <br>
+                        <br>
+
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-6 col-sm-12">
+                         <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
+                              <img src="../images/e4.jpg" class="img-responsive" alt="">
+                         </div>
+                    </div> -->
+
+            </div>
+            <!-- </form> -->
+
+            <!--- Modify Booking -->
+            <!-- <form name="myForm_1" onsubmit="putDoc(); reset(); false;"> -->
+            <div class="row" id="manageDiv" style="display:none;">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <br>
+                        <label>Receipt number: </label>
+                        <input type="text" placeholder="Your Receipt Number" id="receipt" class="form-control" name="receipt" required data-error="Please enter your receipt number">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <button class="btn btn-common" id="booksubmit" onclick="showdisplayDiv()">Fetch Details</button>
+                    </div>
+                </div>
+
+                <div id="displayDiv" style="display:none;">
                     <div class="col-md-6">
                         <h3>Book a table</h3>
-                        <div class="col-md-12">
+                        <br>
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <input id="input_date" class="datepicker picker__input form-control" name="date" type="text" value="" equired data-error="Please enter Date">
+                                <label>Date: </label>
+                                <input id="m_input_date" class="datepicker picker__input form-control" name="date" type="date" value="" equired data-error="Please enter Date">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Time: </label>
+                                <!-- <input id="input_time" class="time form-control picker__input" required data-error="Please enter time"> -->
+                                <select class="custom-select d-block form-control" id="m_input_time" required data-error="Please select time">
+                                    <option disabled selected>Select Time*</option>
+                                    <option value="1">12:00 PM</option>
+                                    <option value="2">12:30 PM</option>
+                                    <option value="3">01:00 PM</option>
+                                    <option value="4">01:30 PM</option>
+                                    <option value="5">02:00 PM</option>
+                                    <option value="6">02:30 PM</option>
+                                    <option value="7">03:00 PM</option>
+                                    <option value="8">03:30 PM</option>
+                                    <option value="9">04:00 PM</option>
+                                    <option value="10">04:30 PM</option>
+                                    <option value="11">05:00 PM</option>
+                                    <option value="12">05:30 PM</option>
+                                    <option value="13">06:00 PM</option>
+                                    <option value="14">06:30 PM</option>
+                                    <option value="15">07:00 PM</option>
+                                    <option value="16">07:30 PM</option>
+                                    <option value="17">08:00 PM</option>
+                                    <option value="18">08:30 PM</option>
+                                    <option value="19">09:00 PM</option>
+                                    <option value="20">09:30 PM</option>
+                                    <option value="21">10:00 PM</option>
+                                  </select>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input id="input_time" class="time form-control picker__input" required data-error="Please enter time">
-                                <div class="help-block with-errors"></div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <select class="custom-select d-block form-control" id="person" required data-error="Please select Person">
+                                <label>Number of person: </label>
+                                <select class="custom-select d-block form-control" id="m_person" required data-error="Please select Person">
                                      <option disabled selected>Select Person*</option>
                                      <option value="1">1</option>
                                      <option value="2">2</option>
@@ -159,30 +352,45 @@
                     </div>
                     <div class="col-md-6">
                         <h3>Contact Details</h3>
-                        <div class="col-md-12">
+                        <br>
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                                <label>First Name: </label>
+                                <input type="text" class="form-control" id="m_fname" name="name" placeholder="Your First Name" required data-error="Please enter your first name" disabled="disabled">
+                                <div class="help-block with-errors"></div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Last Name: </label>
+                                <input type="text" class="form-control" id="m_lname" name="name" placeholder="Your Last Name" required data-error="Please enter your last name" disabled="disabled">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="text" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                                <label>Email: </label>
+                                <input type="text" placeholder="Your Email" id="m_email" class="form-control" name="email" required data-error="Please enter your email" disabled="disabled">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="text" placeholder="Your Numbar" id="phone" class="form-control" name="phone" required data-error="Please enter your Numbar">
+                                <label>Contact Number: </label>
+                                <input type="text" placeholder="Your Numbar" id="m_phone" class="form-control" name="phone" required data-error="Please enter your Numbar" disabled="disabled">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-12">
                         <div class="submit-button text-center">
                             <br>
                             <br>
-                            <button class="btn btn-common" id="submit" type="submit">Book Table</button>
+                            <button class="btn btn-common" id="submit" type="submit" onclick="update_booking()">Update</button>
+                            <!-- <input id="submit" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" value="Update"> -->
+                            <button class="btn btn-common" id="delete" onclick="delete_Booking()">Cancel</button>
                             <div id="msgSubmit" class="h3 text-center hidden"></div>
                             <div class="clearfix"></div>
                             <br>
@@ -190,209 +398,211 @@
 
                         </div>
                     </div>
-
-                    <!-- <div class="col-md-6 col-sm-12">
+                </div>
+            </div>
+            <!-- </form> -->
+            <!-- <div class="col-md-6 col-sm-12">
                          <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
                               <img src="../images/e4.jpg" class="img-responsive" alt="">
                          </div>
                     </div> -->
 
-                </div>
-            </div>
-        </section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-        <section id="about" data-stellar-background-ratio="0.5">
-            <div class="container">
-                <div class="row">
+    <section id="about" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
 
-                    <div class="col-md-6 col-sm-12">
-                        <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
-                            <img src="../images/foodmenu.jpg" alt="" width="100" height="450">
-                        </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
+                        <img src="../images/foodmenu.jpg" alt="" width="100" height="450">
                     </div>
+                </div>
 
 
-                    <div class="col-md-6 col-sm-12">
-                        <div class="about-info">
-                            <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-md-6 col-sm-12">
+                    <div class="about-info">
+                        <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
 
-                                <h2>Food Menu</h2>
-                            </div>
+                            <h2>Food Menu</h2>
+                        </div>
 
-                            <div class="wow fadeInUp" data-wow-delay="0.4s">
-                                <p style="font-size:17px"> Choose from the many seasonal and classic Irish or European dishes, you can choose delicious options from our A la carte menu. Each dish is carefully prepared by our team of expert chefs and is complemented by a fantastic
-                                    choice of fine wines. No need to worry about the children either. A special children’s menu is also available. Make sure to let us know if there’s a birthday being celebrated, and we will have the candles ready for
-                                    dessert. </p>
-                                <br>
+                        <div class="wow fadeInUp" data-wow-delay="0.4s">
+                            <p style="font-size:17px"> Choose from the many seasonal and classic Irish or European dishes, you can choose delicious options from our A la carte menu. Each dish is carefully prepared by our team of expert chefs and is complemented by a fantastic choice
+                                of fine wines. No need to worry about the children either. A special children’s menu is also available. Make sure to let us know if there’s a birthday being celebrated, and we will have the candles ready for dessert. </p>
+                            <br>
 
-                                <button class="btn btn-common" id="Breakfast" type="submit">Breakfast menu</button>
-                                <button class="btn btn-common" id="Lunch" type="submit">Lunch menu</button>
-                                <button class="btn btn-common" id="Diner" type="submit">Dinner menu</button>
-                                <br><br><br><button class="btn btn-common" id="Desert" type="submit">Desserts menu</button>
-                            </div>
+                            <button class="btn btn-common" id="Breakfast" type="submit" onclick="window.open('menus/BreakfastMenu.pdf')">Breakfast menu</button>
+                            <button class="btn btn-common" id="Lunch" type="submit" onclick="window.open('menus/LunchMenu.pdf')">Lunch/Diner menu</button>
+                            <button class="btn btn-common" id="Desert" type="submit" onclick="window.open('menus/DessertMenu.pdf')">Desserts menu</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
 
 
-        </section>
+    </section>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-        <section id="about" data-stellar-background-ratio="0.5">
-            <div class="container">
-                <div class="row">
+    <section id="about" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
 
-                    <!-- <div class="col-md-6 col-sm-12">
+                <!-- <div class="col-md-6 col-sm-12">
                             <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
                             <img src="../images/drinkmenu.jpg" class="img-responsive" alt="">
                             </div>
                         </div> -->
 
 
-                    <div class="col-md-6 col-sm-12">
-                        <div class="about-info">
-                            <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-md-6 col-sm-12">
+                    <div class="about-info">
+                        <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
 
-                                <h2>Drinks Menu</h2>
-                            </div>
-
-                            <div class="wow fadeInUp" data-wow-delay="0.4s">
-                                <p style="font-size:17px"> We are happy offer a large array of drinks, from the traditional Guinness, Heineken, Erdinger to an extensive selection of Craft Beers both bottled and on draft. Our large selection of bottled beers including Corona, Coors
-                                    Light, Heineken, Erdinger Non Alcoholic and Bulmers, as well as our extensive Gin & Whiskeys mean that there is something to suit everyone. Hotel guests can relax and enjoy an evening full of good food and drinks in
-                                    a relaxing and authentic atmosphere. In line with government guidelines our outdoor terrace area is available to non-hotel guests, numbers are limited and we are operating on a walk in basis. </p>
-
-                                <br>
-                            </div>
+                            <h2>Drinks Menu</h2>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
-                            <img src="../images/drinksmenu.jpg" width="100" height="450" alt="">
+
+                        <div class="wow fadeInUp" data-wow-delay="0.4s">
+                            <p style="font-size:17px"> We are happy offer a large array of drinks, from the traditional Guinness, Heineken, Erdinger to an extensive selection of Craft Beers both bottled and on draft. Our large selection of bottled beers including Corona, Coors
+                                Light, Heineken, Erdinger Non Alcoholic and Bulmers, as well as our extensive Gin & Whiskeys mean that there is something to suit everyone. Hotel guests can relax and enjoy an evening full of good food and drinks in a relaxing
+                                and authentic atmosphere. In line with government guidelines our outdoor terrace area is available to non-hotel guests, numbers are limited and we are operating on a walk in basis. </p>
+
+                            <br>
+
+                            <button class="btn btn-common" id="Drinks" type="submit" onclick="window.open('menus/BarMenu.pdf')">Drinks menu</button>
+
                         </div>
                     </div>
                 </div>
-            </div>
-
-
-
-        </section>
-
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <!-- FOOTER -->
-        <footer id="footer" data-stellar-background-ratio="0.5">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-md-3 col-sm-8">
-                        <div class="footer-info">
-                            <div class="section-title">
-                                <h2 class="wow fadeInUp" data-wow-delay="0.2s">Find us</h2>
-                            </div>
-                            <address class="wow fadeInUp" data-wow-delay="0.4s">
-                                   <p>123 nulla a cursus rhoncus,<br> augue sem viverra 10870<br>id ultricies sapien</p>
-                              </address>
-                        </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
+                        <img src="../images/drinksmenu.jpg" width="100" height="450" alt="">
                     </div>
-
-                    <div class="col-md-3 col-sm-8">
-                        <div class="footer-info">
-                            <div class="section-title">
-                                <h2 class="wow fadeInUp" data-wow-delay="0.2s">Reservation</h2>
-                            </div>
-                            <address class="wow fadeInUp" data-wow-delay="0.4s">
-                                   <p>090-080-0650 | 090-070-0430</p>
-                                   <p><a href="mailto:info@company.com">info@company.com</a></p>
-                                   <p>LINE: eatery247 </p>
-                              </address>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-8">
-                        <div class="footer-info footer-open-hour">
-                            <div class="section-title">
-                                <h2 class="wow fadeInUp" data-wow-delay="0.2s">Open Hours</h2>
-                            </div>
-                            <div class="wow fadeInUp" data-wow-delay="0.4s">
-                                <p>Monday: Closed</p>
-                                <div>
-                                    <strong>Tuesday to Friday</strong>
-                                    <p>7:00 AM - 9:00 PM</p>
-                                </div>
-                                <div>
-                                    <strong>Saturday - Sunday</strong>
-                                    <p>11:00 AM - 10:00 PM</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 col-sm-4">
-                        <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
-                            <li>
-                                <a href="#" class="fa fa-facebook-square" attr="facebook icon"></a>
-                            </li>
-                            <li>
-                                <a href="#" class="fa fa-twitter"></a>
-                            </li>
-                            <li>
-                                <a href="#" class="fa fa-instagram"></a>
-                            </li>
-                            <li>
-                                <a href="#" class="fa fa-google"></a>
-                            </li>
-                        </ul>
-
-                        <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s">
-                            <p><br>Copyright &copy; 2022 <br>5-Star
-
-                                <br><br>Design: TemplateMo</p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
-        </footer>
+        </div>
+
+
+
+    </section>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- FOOTER -->
+    <footer id="footer" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-8">
+                    <div class="footer-info">
+                        <div class="section-title">
+                            <h2 class="wow fadeInUp" data-wow-delay="0.2s">Find us</h2>
+                        </div>
+                        <address class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p>Ground Floor,<br> The Ronan Building,<br>
+                                    47-51 Southgate Road,<br>
+                                    Dublin 6<br>D06 J9T2</p>
+                              </address>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-8">
+                    <div class="footer-info">
+                        <div class="section-title">
+                            <h2 class="wow fadeInUp" data-wow-delay="0.2s">Reservation</h2>
+                        </div>
+                        <address class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p>010-020-0340 | 010-020-0350</p>
+                                   <p><a href="mailto:info5starhotel@company.com">info5starhotel@company.com</a></p>
+                              </address>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-8">
+                    <div class="footer-info footer-open-hour">
+                        <div class="section-title">
+                            <h2 class="wow fadeInUp" data-wow-delay="0.2s">Open Hours</h2>
+                        </div>
+                        <div class="wow fadeInUp" data-wow-delay="0.4s">
+                            <p>Monday: Closed</p>
+                            <div>
+                                <strong>Tuesday to Friday</strong>
+                                <p>7:00 AM - 9:00 PM</p>
+                            </div>
+                            <div>
+                                <strong>Saturday - Sunday</strong>
+                                <p>11:00 AM - 10:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-4">
+                    <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
+                        <li>
+                            <a href="#" class="fa fa-facebook-square" attr="facebook icon"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="fa fa-twitter"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="fa fa-instagram"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="fa fa-google"></a>
+                        </li>
+                    </ul>
+
+                    <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s">
+                        <p><br>Copyright &copy; 2022 <br>5-Star Hotel</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 
 
 
 
 
-        <!-- SCRIPTS -->
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/jquery.stellar.min.js"></script>
-        <script src="../js/wow.min.js"></script>
-        <script src="../js/owl.carousel.min.js"></script>
-        <script src="../js/jquery.magnific-popup.min.js"></script>
-        <script src="../js/smoothscroll.js"></script>
-        <script src="../js/custom.js"></script>
+    <!-- SCRIPTS -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.stellar.min.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/custom.js"></script>
 
 
-    </body>
+</body>
 
-    </html>
+</html>
