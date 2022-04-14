@@ -3,7 +3,7 @@
 
     <head>
 
-        <title>Reastaurant and Bar</title>
+        <title>Room Booking</title>
 
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -19,7 +19,22 @@
         <!-- MAIN CSS -->
         <link rel="stylesheet" href="../css/templatemo-style.css">
 
+        <!-- API JS -->
+        <script type="text/javascript" src="js/roomAPI.js"></script>
+
     </head>
+
+    <script>
+        function showbookDiv() {
+            document.getElementById('bookDiv').style.display = "block";
+            document.getElementById('modifyDiv').style.display = "none";
+        }
+
+        function showmanageDiv() {
+            document.getElementById('bookDiv').style.display = "none";
+            document.getElementById('modifyDiv').style.display = "block";
+        }
+    </script>
 
     <body>
 
@@ -58,11 +73,17 @@
                     </ul>
 
                     <!-- <ul class="nav navbar-nav navbar-right">
-					<a href="Hotel_Reservation_Form.html" target="_blank" class="section-btn">Book a hall</a>
-					<a href="#footer" class="section-btn">Manage booking</a>
-                         
-                         
+                        <li><a href="#">Call Now! <i class="fa fa-phone"></i> 010 020 0340</a></li>
+                        <a href="signin&up/Login.html" class="section-btn" id="loginn">Login</a>
+                        <a href="signin&up/Register.html" class="section-btn" id="registerr">Register</a>
+
+                        <button type="submit" onclick="outDoc()" class="section-btn" id="logoutt">Logout</button>
+                        <script>
+                            document.getElementById("logoutt").style.display = "none";
+                        </script>
                     </ul> -->
+
+
                 </div>
 
             </div>
@@ -119,14 +140,18 @@
         <hr style="width:45%;text-align:center;">
 
         <div class="container">
-            <p style="text-align: center; font-size:20px"> One of the premier hotels in the Dublin city. 5 Star Hotel 222 spacious rooms including 50 Club™ rooms and 18 luxurious suites. As a Club™ guest, enjoy complimentary access to the club’s lounge and host of services. Additionally, the 79 fully-equipped
+            <p style="text-align: center; font-size:20px"> One of the premier hotels in the Dublin city. 5 Star Hotel 120 spacious rooms including 50 Club™ rooms and 18 luxurious suites. As a Club™ guest, enjoy complimentary access to the club’s lounge and host of services. Additionally, the 79 fully-equipped
                 apartments are ideal for short and long stays. Modern, fully furnished and pet-friendly, the apartments come in flexible configurations of one and two bedrooms. Enjoy the comfort of feeling at home while staying with us. </p>
         </div>
 
-        <!-- Hall types -->
+        <!-- Room Booking -->
         <section id="about" data-stellar-background-ratio="0.5">
             <div class="container">
-                <div class="row">
+                <button class="btn btn-common" id="booksubmit" onclick="showbookDiv()">Create Booking</button>
+                <button class="btn btn-common" id="modifysubmit" onclick="showmanageDiv()">Change Booking</button>
+
+                <!-- <form name="myForm" onsubmit="create_record(); reset(); false;"> -->
+                <div class="row" id="bookDiv" style="display:none;">
                     <div class="col-md-12">
                         <!-- <h3>Book a room</h3>
                         </br> 
@@ -136,14 +161,14 @@
                             <div class="form-group">
                                 <!-- <label class="date">CHECK IN:</label> -->
                                 <h4 class="date">Check In:</h4>
-                                <input class="book_n" type="date">
+                                <input id="check_in" class="book_n" type="date">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <h4 class="date">Check Out:</h4>
-                                <input class="book_n" type="date">
+                                <input id="check_out" class="book_n" type="date">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -164,10 +189,23 @@
                             </div>
                         </div>
                         <div class="col-md-3">
+                            <div class="form-group">
+                                <h4 class="date">Type of room:</h4>
+                                <select class="custom-select d-block form-control" id="roomtype" required data-error="Please select Room Type">
+                                    <option disabled selected>Select Type of Room*</option>
+                                     <option value="1">Single Room</option>
+                                     <option value="2">Double Room</option>
+                                     <option value="3">Delux Room</option>
+                                     
+                                   </select>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
                             <div class="submit-button text-center">
                                 <br>
                                 <br>
-                                <button class="btn btn-common" id="submit" type="submit">Find Availability</button>
+                                <button class="btn btn-common" onclick="showcontactDiv()">Check Rooms</button>
                                 <div id="msgSubmit" class="h3 text-center hidden"></div>
                                 <div class="clearfix"></div>
                                 <br>
@@ -177,16 +215,225 @@
                         </div>
                     </div>
 
+                    <div id="contactDiv" style="display:none;">
+                        <!-- show details,number of rooms allocated, total price, room per price -->
+                        <div class="col-md-4">
+                            <label>Number of rooms allocated: </label>
+                            <input type="text" id="room_allocated" name="room_allocated" class="form-control" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Price per room: </label>
+                            <input type="text" id="price_per_room" name="price_per_room" class="form-control" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Total Price: </label>
+                            <input type="text" id="total_price" name="total_price" class="form-control" readonly>
+                        </div>
 
-                    <!-- <div class="col-md-6 col-sm-12">
-                         <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
-                              <img src="../images/e4.jpg" class="img-responsive" alt="">
-                         </div>
-                    </div> -->
+                        <div class="col-md-12">
+                            <h3>Contact Details</h3>
+                            <br>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>First Name: </label>
+                                    <input type="text" class="form-control" id="fname" name="name" placeholder="Your First Name" required data-error="Please enter your first name">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Last Name: </label>
+                                    <input type="text" class="form-control" id="lname" name="name" placeholder="Your Last Name" required data-error="Please enter your last name">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Email: </label>
+                                    <input type="text" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Contact Number: </label>
+                                    <input type="text" placeholder="Your Numbar" id="phone" class="form-control" name="phone" required data-error="Please enter your Numbar">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="submit-button text-center">
+                                <br>
+                                <br>
+                                <button class="btn btn-common" id="submit" type="submit" onclick="create_record()">Book a Room</button>
+                                <!-- <input id="submit" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" value="Book a Room"> -->
+                                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                <div class="clearfix"></div>
+                                <br>
+                                <br>
+
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
+                <!-- </form> -->
+
+                <div class="row" id="modifyDiv" style="display:none;">
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <br>
+                            <label>Receipt number: </label>
+                            <input type="text" placeholder="Your Receipt Number" id="receipt" class="form-control" name="receipt" required data-error="Please enter your receipt number">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <button class="btn btn-common" id="booksubmit" onclick="showdisplayDiv()">Show Details</button>
+                        </div>
+                    </div>
+
+
+
+                    <div id="displayDiv" style="display:none;">
+                        <div class="col-md-12">
+                            <!-- <h3>Book a room</h3>
+                        </br> 
+                        </br>
+                        </br>-->
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <!-- <label class="date">CHECK IN:</label> -->
+                                    <h4 class="date">Check In:</h4>
+                                    <input id="new_check_in" class="book_n" type="date">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <h4 class="date">Check Out:</h4>
+                                    <input id="new_check_out" class="book_n" type="date">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <h4 class="date">Number of persons:</h4>
+                                    <select class="custom-select d-block form-control" id="new_person" required data-error="Please select Person">
+                                    <option disabled selected>Select Person*</option>
+                                     <option value="1">1</option>
+                                     <option value="2">2</option>
+                                     <option value="3">3</option>
+                                     <option value="4">4</option>
+                                     <option value="5">5</option>
+                                     <option value="6">6</option>
+                                     <option value="7">7</option>
+                                   </select>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <h4 class="date">Type of room:</h4>
+                                    <select class="custom-select d-block form-control" id="new_roomtype" required data-error="Please select Room Type">
+                                    <option disabled selected>Select Type of Room*</option>
+                                     <option value="1">Single Room</option>
+                                     <option value="2">Double Room</option>
+                                     <option value="3">Delux Room</option>
+                                     
+                                   </select>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="submit-button text-center">
+                                    <br>
+                                    <br>
+                                    <button class="btn btn-common" id="submit" type="submit" onclick="shownewcontactDiv()">Check Rooms</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                    <br>
+                                    <br>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div id="contactDiv" style="display:none;"> -->
+                        <!-- show details,number of rooms allocated, total price, room per price -->
+                        <div class="col-md-4">
+                            <label>Number of rooms allocated: </label>
+                            <input type="text" id="new_room_allocated" name="room_allocated" class="form-control" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Price per room: </label>
+                            <input type="text" id="new_price_per_room" name="price_per_room" class="form-control" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Total Price: </label>
+                            <input type="text" id="new_total_price" name="total_price" class="form-control" readonly>
+                        </div>
+
+                        <div class="col-md-12">
+                            <h3>Contact Details</h3>
+                            <br>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>First Name: </label>
+                                    <input type="text" class="form-control" id="new_fname" name="name" placeholder="Your First Name" required data-error="Please enter your first name" readonly>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Last Name: </label>
+                                    <input type="text" class="form-control" id="new_lname" name="name" placeholder="Your Last Name" required data-error="Please enter your last name" readonly>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Email: </label>
+                                    <input type="text" placeholder="Your Email" id="new_email" class="form-control" name="email" required data-error="Please enter your email" readonly>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Contact Number: </label>
+                                    <input type="text" placeholder="Your Numbar" id="new_phone" class="form-control" name="phone" required data-error="Please enter your Numbar" readonly>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="submit-button text-center">
+                                <br>
+                                <br>
+                                <button class="btn btn-common" id="submit" type="submit" onclick="update_record()">Update Booking</button>
+                                <button class="btn btn-common" id="submit" type="submit" onclick="delete_record()">Cancel Booking</button>
+                                <!-- <input id="submit" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" value="Book a Room"> -->
+                                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                <div class="clearfix"></div>
+                                <br>
+                                <br>
+
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
+
+
             </div>
         </section>
+
         <br>
         <br>
         <br>
@@ -226,6 +473,7 @@
                         </div>
                         <div class="team-info">
                             <h3>Single Room</h3>
+                            <h5>$100 per night</h5>
                             <p>Exquisitely built, this 40-square-metre room features modern design, wooden floors, and floor-to-ceiling windows. Enjoy a plush king bed, a work desk with high-speed internet access, marble bath with a freestanding tub and
                                 rain shower and other complimentary in-room amenities like premium toiletries and bathrobes.</p>
                         </div>
@@ -254,6 +502,7 @@
                         </div>
                         <div class="team-info">
                             <h3>Double Room</h3>
+                            <h5>$150 per night</h5>
                             <p>Exquisitely built, the 40-square-metre room features modern day design with wooden floors and floor-to-ceiling windows. Enjoy a plush king sized bed, a work desk with high-speed Internet access, marble bath with a freestanding
                                 tub and rain shower. Explore exclusive Club amenities such as 15% discount on Food & Beverages, airport transfers, breakfast, evening cocktails and canapés. </p>
                         </div>
@@ -281,6 +530,7 @@
                         </div>
                         <div class="team-info">
                             <h3>Delux Suite</h3>
+                            <h5>$200 per night</h5>
                             <p>Spacious 84-square-metre suite features modern decor with floor-to-ceiling windows, a complementing king bedroom, living area, work desk with high-speed Internet access and marble bath with freestanding tub and rain shower.
                                 Enjoy exclusive Club amenities including 15% discount on food and soft beverages, airport transfers, breakfast, evening cocktails and canapés. This is a standard suite.</p>
                         </div>
@@ -315,7 +565,9 @@
                                 <h2 class="wow fadeInUp" data-wow-delay="0.2s">Find us</h2>
                             </div>
                             <address class="wow fadeInUp" data-wow-delay="0.4s">
-                                   <p>123 nulla a cursus rhoncus,<br> augue sem viverra 10870<br>id ultricies sapien</p>
+                                   <p>Ground Floor,<br> The Ronan Building,<br>
+                                    47-51 Southgate Road,<br>
+                                    Dublin 6<br>D06 J9T2</p>
                               </address>
                         </div>
                     </div>
@@ -326,9 +578,8 @@
                                 <h2 class="wow fadeInUp" data-wow-delay="0.2s">Reservation</h2>
                             </div>
                             <address class="wow fadeInUp" data-wow-delay="0.4s">
-                                   <p>090-080-0650 | 090-070-0430</p>
-                                   <p><a href="mailto:info@company.com">info@company.com</a></p>
-                                   <p>LINE: eatery247 </p>
+                                   <p>010-020-0340 | 010-020-0350</p>
+                                   <p><a href="mailto:info5starhotel@company.com">info5starhotel@company.com</a></p>
                               </address>
                         </div>
                     </div>
@@ -369,15 +620,14 @@
                         </ul>
 
                         <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s">
-                            <p><br>Copyright &copy; 2022 <br>5-Star
-
-                                <br><br>Design: TemplateMo</p>
+                            <p><br>Copyright &copy; 2022 <br>5-Star Hotel</p>
                         </div>
                     </div>
 
                 </div>
             </div>
         </footer>
+
 
 
 
