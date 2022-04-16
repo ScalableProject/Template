@@ -116,7 +116,8 @@ function show_record() {
         }
     };
     // open the API url to send the request with id
-    xhttp.open("GET", "http://localhost:5000/api/roombookings/" + receipt, true);
+    //xhttp.open("GET", "http://localhost:5000/api/roombookings/" + receipt, true);
+    xhttp.open("GET", "http://roombookingeb6-env.eba-mmpeearp.us-east-1.elasticbeanstalk.com/api/roombookings/" + receipt, true);
     // send the request
     xhttp.send();
 }
