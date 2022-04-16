@@ -94,7 +94,9 @@ function get_Booking() {
 
         }
     };
-    xhttp.open("GET", "http://localhost:5000/api/rnbbookings/" + receipt, true);
+    // xhttp.open("GET", "http://localhost:5000/api/rnbbookings/" + receipt, true);
+    xhttp.open("GET", "http://scprnb-env.eba-5cxfbpf9.us-east-1.elasticbeanstalk.com/api/rnbbookings/" + receipt, true);
+
     xhttp.send();
 }
 
