@@ -16,7 +16,7 @@ function loadDoc() {
 		
 	}
   };
-  xhttp.open("GET", "http://localhost:5000/api/test/user", true);
+  xhttp.open("GET", "http://localhost:500/api/test/user", true);
   xhttp.send();
 }
 
@@ -25,7 +25,7 @@ function loadDoc() {
 function outDoc(){
 
 
-  var url = "http://localhost:5000/api/auth/signout";
+  var url = "http://localhost:500/api/auth/signout";
 
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
@@ -63,7 +63,7 @@ function outDoc(){
 function postDoc() {
 	
 	
-	var url = "http://localhost:5000/api/auth/signin";
+	var url = "http://localhost:500/api/auth/signin";
 
 var xhr = new XMLHttpRequest();
 xhr.open("POST", url, true);
@@ -122,7 +122,7 @@ xhr.send(data);
 function postReg() {
 	
 	
-	var url = "http://localhost:5000/api/auth/signup";
+	var url = "http://localhost:500/api/auth/signup";
 
 var xhr = new XMLHttpRequest();
 xhr.open("POST", url, true);
